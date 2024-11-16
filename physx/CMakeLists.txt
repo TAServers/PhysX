@@ -524,9 +524,9 @@ target_link_libraries(PhysX PRIVATE
 
 target_include_directories(PhysX PRIVATE
         include
-        source/common/src
         source/common/include
-        source/physx/src
+        source/common/src
+        source/filebuf/include
         source/geomutils/include
         source/geomutils/src
         source/geomutils/src/ccd
@@ -546,25 +546,25 @@ target_include_directories(PhysX PRIVATE
         source/lowlevel/common/include/pipeline
         source/lowlevel/common/include/utils
         source/lowlevel/software/include
+        source/lowlevelaabb/include
         source/lowleveldynamics/include
         source/lowleveldynamics/shared
-        source/scenequery/include
-        source/filebuf/include
-        source/lowlevelaabb/include
-        source/physxgpu/include
-        source/pvd/include
-        source/scenequery/include
-        source/simulationcontroller/include
-        source/simulationcontroller/src
-        source/physxmetadata/core/include
-        source/physxmetadata/extensions/include
+        source/physx/src
         source/physx/src/device
         source/physxextensions/src
         source/physxextensions/src/serialization/Binary
         source/physxextensions/src/serialization/File
         source/physxextensions/src/serialization/Xml
-        source/physxvehicle/src/physxmetadata/include
+        source/physxgpu/include
+        source/physxmetadata/core/include
+        source/physxmetadata/extensions/include
         source/physxvehicle/src
+        source/physxvehicle/src/physxmetadata/include
+        source/pvd/include
+        source/scenequery/include
+        source/scenequery/include
+        source/simulationcontroller/include
+        source/simulationcontroller/src
 )
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
