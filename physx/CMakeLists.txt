@@ -1,35 +1,48 @@
+set(PLATFORM_SPECIFIC_SOURCES "")
+
+if (UNIX)
+    set(PLATFORM_SPECIFIC_SOURCES
+            source/foundation/unix/FdUnixAtomic.cpp
+            source/foundation/unix/FdUnixFPU.cpp
+            source/foundation/unix/FdUnixMutex.cpp
+            source/foundation/unix/FdUnixPrintString.cpp
+            source/foundation/unix/FdUnixSList.cpp
+            source/foundation/unix/FdUnixSocket.cpp
+            source/foundation/unix/FdUnixSync.cpp
+            source/foundation/unix/FdUnixThread.cpp
+            source/foundation/unix/FdUnixTime.cpp
+    )
+elseif (WIN32)
+    set(PLATFORM_SPECIFIC_SOURCES
+            source/foundation/windows/FdWindowsAtomic.cpp
+            source/foundation/windows/FdWindowsFPU.cpp
+            source/foundation/windows/FdWindowsMutex.cpp
+            source/foundation/windows/FdWindowsPrintString.cpp
+            source/foundation/windows/FdWindowsSList.cpp
+            source/foundation/windows/FdWindowsSocket.cpp
+            source/foundation/windows/FdWindowsSync.cpp
+            source/foundation/windows/FdWindowsThread.cpp
+            source/foundation/windows/FdWindowsTime.cpp
+            source/common/src/windows/CmWindowsDelayLoadHook.cpp
+            source/common/src/windows/CmWindowsModuleUpdateLoader.cpp
+            source/physx/src/device/windows/PhysXIndicatorWindows.cpp
+            source/physx/src/windows/NpWindowsDelayLoadHook.cpp
+            source/physxcooking/src/windows/WindowsCookingDelayLoadHook.cpp
+    )
+endif ()
+
 add_library(PhysX SHARED
         source/common/src/CmCollection.cpp
         source/common/src/CmPtrTable.cpp
         source/common/src/CmRadixSort.cpp
         source/common/src/CmSerialize.cpp
         source/common/src/CmVisualization.cpp
-#        source/common/src/windows/CmWindowsDelayLoadHook.cpp
-#        source/common/src/windows/CmWindowsModuleUpdateLoader.cpp
         source/foundation/FdAllocator.cpp
         source/foundation/FdAssert.cpp
         source/foundation/FdFoundation.cpp
         source/foundation/FdMathUtils.cpp
         source/foundation/FdString.cpp
         source/foundation/FdTempAllocator.cpp
-        source/foundation/unix/FdUnixAtomic.cpp
-        source/foundation/unix/FdUnixFPU.cpp
-        source/foundation/unix/FdUnixMutex.cpp
-        source/foundation/unix/FdUnixPrintString.cpp
-        source/foundation/unix/FdUnixSList.cpp
-        source/foundation/unix/FdUnixSocket.cpp
-        source/foundation/unix/FdUnixSync.cpp
-        source/foundation/unix/FdUnixThread.cpp
-        source/foundation/unix/FdUnixTime.cpp
-#        source/foundation/windows/FdWindowsAtomic.cpp
-#        source/foundation/windows/FdWindowsFPU.cpp
-#        source/foundation/windows/FdWindowsMutex.cpp
-#        source/foundation/windows/FdWindowsPrintString.cpp
-#        source/foundation/windows/FdWindowsSList.cpp
-#        source/foundation/windows/FdWindowsSocket.cpp
-#        source/foundation/windows/FdWindowsSync.cpp
-#        source/foundation/windows/FdWindowsThread.cpp
-#        source/foundation/windows/FdWindowsTime.cpp
         source/geomutils/src/GuAABBPruner.cpp
         source/geomutils/src/GuAABBTree.cpp
         source/geomutils/src/GuAABBTreeUpdateMap.cpp
@@ -297,7 +310,6 @@ add_library(PhysX SHARED
         source/physx/src/PvdMetaDataPvdBinding.cpp
         source/physx/src/PvdPhysicsClient.cpp
         source/physx/src/device/linux/PhysXIndicatorLinux.cpp
-#        source/physx/src/device/windows/PhysXIndicatorWindows.cpp
         source/physx/src/gpu/PxGpu.cpp
         source/physx/src/gpu/PxPhysXGpuModuleLoader.cpp
         source/physx/src/omnipvd/NpOmniPvd.cpp
@@ -305,7 +317,6 @@ add_library(PhysX SHARED
         source/physx/src/omnipvd/NpOmniPvdRegistrationData.cpp
         source/physx/src/omnipvd/OmniPvdChunkAlloc.cpp
         source/physx/src/omnipvd/OmniPvdPxSampler.cpp
-#        source/physx/src/windows/NpWindowsDelayLoadHook.cpp
         source/physxcharacterkinematic/src/CctBoxController.cpp
         source/physxcharacterkinematic/src/CctCapsuleController.cpp
         source/physxcharacterkinematic/src/CctCharacterController.cpp
@@ -317,7 +328,6 @@ add_library(PhysX SHARED
         source/physxcharacterkinematic/src/CctSweptCapsule.cpp
         source/physxcharacterkinematic/src/CctSweptVolume.cpp
         source/physxcooking/src/Cooking.cpp
-#        source/physxcooking/src/windows/WindowsCookingDelayLoadHook.cpp
         source/physxextensions/src/ExtBroadPhase.cpp
         source/physxextensions/src/ExtCollection.cpp
         source/physxextensions/src/ExtContactJoint.cpp
@@ -506,6 +516,7 @@ add_library(PhysX SHARED
         source/simulationcontroller/src/ScTriggerInteraction.cpp
         source/simulationcontroller/src/ScVisualize.cpp
         source/task/src/TaskManager.cpp
+        ${PLATFORM_SPECIFIC_SOURCES}
 )
 
 target_link_libraries(PhysX PRIVATE
