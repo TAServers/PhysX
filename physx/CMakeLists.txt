@@ -522,6 +522,7 @@ add_library(PhysX SHARED
 target_link_libraries(PhysX PRIVATE
 )
 
+# TODO: Many of these function as their own sub-packages. This should be split into a cmakelists for each package
 target_include_directories(PhysX PRIVATE
         include
         source/common/include
