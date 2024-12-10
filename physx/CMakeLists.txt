@@ -12,6 +12,7 @@ if (UNIX)
             source/foundation/unix/FdUnixThread.cpp
             source/foundation/unix/FdUnixTime.cpp
     )
+    set(BUILD_SHARED_LIBS ON)
 elseif (WIN32)
     set(PLATFORM_SPECIFIC_SOURCES
             source/foundation/windows/FdWindowsAtomic.cpp
@@ -29,9 +30,12 @@ elseif (WIN32)
             source/physx/src/windows/NpWindowsDelayLoadHook.cpp
             source/physxcooking/src/windows/WindowsCookingDelayLoadHook.cpp
     )
+
+    # Windows PhysX only supports a static library
+    set(BUILD_SHARED_LIBS OFF)
 endif ()
 
-add_library(PhysX STATIC
+add_library(PhysX
         source/common/src/CmCollection.cpp
         source/common/src/CmPtrTable.cpp
         source/common/src/CmRadixSort.cpp
@@ -572,7 +576,10 @@ set(PLATFORM_SPECIFIC_DEFINITIONS "")
 if (CMAKE_SYSTEM_NAME MATCHES Windows)
     set(PLATFORM_SPECIFIC_DEFINITIONS
             PX_DISABLE_RESTRICT
+            PX_PHYSX_STATIC_LIB
     )
+
+    message(WARNING "Compiling PhysX as a static library for Windows")
 endif ()
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
@@ -582,7 +589,6 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
             PX_PUBLIC_RELEASE=1
             PX_SUPPORT_OMNI_PVD=0
             PX_SUPPORT_PVD=1
-            PX_PHYSX_STATIC_LIB
             PX_CHECKED=1
             ${PLATFORM_SPECIFIC_DEFINITIONS}
     )
@@ -593,7 +599,6 @@ else ()
             PX_PUBLIC_RELEASE=1
             PX_SUPPORT_OMNI_PVD=0
             PX_SUPPORT_PVD=0
-            PX_PHYSX_STATIC_LIB
             ${PLATFORM_SPECIFIC_DEFINITIONS}
     )
 endif ()
