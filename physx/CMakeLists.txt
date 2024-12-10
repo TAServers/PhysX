@@ -579,13 +579,6 @@ if (CMAKE_SYSTEM_NAME MATCHES Windows)
             PX_PHYSX_STATIC_LIB
     )
 
-    if (CMAKE_BUILD_TYPE MATCHES Debug)
-        set(PLATFORM_SPECIFIC_DEFINITIONS
-                ${PLATFORM_SPECIFIC_DEFINITIONS}
-                _DEBUG
-        )
-    endif ()
-
     message(WARNING "Compiling PhysX as a static library for Windows")
 endif ()
 
