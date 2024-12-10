@@ -335,11 +335,11 @@ Noinline macro
 Restrict macro
 */
 #if defined(__CUDACC__)
-  #define PX_RESTRICT __restrict__
-#elif defined(PX_DISABLE_RESTRICT)
-  #define PX_RESTRICT
+	#define PX_RESTRICT __restrict__
+#elif defined (PX_DISABLE_RESTRICT)
+	#define PX_RESTRICT
 #else
-  #define PX_RESTRICT __restrict
+	#define PX_RESTRICT __restrict
 #endif
 
 /**
