@@ -31,7 +31,7 @@ elseif (WIN32)
     )
 endif ()
 
-add_library(PhysX SHARED
+add_library(PhysX STATIC
         source/common/src/CmCollection.cpp
         source/common/src/CmPtrTable.cpp
         source/common/src/CmRadixSort.cpp
@@ -568,14 +568,25 @@ target_include_directories(PhysX PRIVATE
         source/simulationcontroller/src
 )
 
+set(PLATFORM_SPECIFIC_DEFINITIONS "")
+if (CMAKE_SYSTEM_NAME MATCHES Windows)
+    set(PLATFORM_SPECIFIC_DEFINITONS
+            PX_SIMD_DISABLED
+    )
+
+    message(WARNING "Windows does not support PhysX SIMD acceleration")
+endif ()
+
 if (CMAKE_BUILD_TYPE MATCHES Debug)
     target_compile_definitions(PhysX PRIVATE
-            NDEBUG
+            _DEBUG
             DISABLE_CUDA_PHYSX
             PX_PUBLIC_RELEASE=1
             PX_SUPPORT_OMNI_PVD=0
             PX_SUPPORT_PVD=1
+            PX_PHYSX_STATIC_LIB
             PX_CHECKED=1
+            ${PLATFORM_SPECIFIC_DEFINITIONS}
     )
 else ()
     target_compile_definitions(PhysX PRIVATE
@@ -584,6 +595,8 @@ else ()
             PX_PUBLIC_RELEASE=1
             PX_SUPPORT_OMNI_PVD=0
             PX_SUPPORT_PVD=0
+            PX_PHYSX_STATIC_LIB
+            ${PLATFORM_SPECIFIC_DEFINITIONS}
     )
 endif ()
 
