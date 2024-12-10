@@ -70,13 +70,13 @@ Compiler defines, see http://sourceforge.net/p/predef/wiki/Compilers/
 #endif
 #elif defined(__clang__)
 #define PX_CLANG 1
-	#if defined (__clang_major__) 
+	#if defined (__clang_major__)
 		#define PX_CLANG_MAJOR __clang_major__
 	#elif defined (_clang_major)
 		#define PX_CLANG_MAJOR _clang_major
 	#else
 		#define PX_CLANG_MAJOR 0
-	#endif	
+	#endif
 #elif defined(__GNUC__) // note: __clang__ implies __GNUC__
 	#define PX_GCC 1
 #else
@@ -336,6 +336,8 @@ Restrict macro
 */
 #if defined(__CUDACC__)
 	#define PX_RESTRICT __restrict__
+#elif defined (PX_DISABLE_RESTRICT)
+	#define PX_RESTRICT
 #else
 	#define PX_RESTRICT __restrict
 #endif
@@ -371,7 +373,7 @@ Unused attribute macro. Only on GCC for now.
 #if PX_GCC_FAMILY
 	#define PX_UNUSED_ATTRIBUTE __attribute__((unused))
 #else
-	#define PX_UNUSED_ATTRIBUTE 
+	#define PX_UNUSED_ATTRIBUTE
 #endif
 
 /**

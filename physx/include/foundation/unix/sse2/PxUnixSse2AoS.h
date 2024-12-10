@@ -76,13 +76,13 @@ typedef union UnionM128
 	}
 
 	float m128_f32[4];
-	__int8_t m128_i8[16];
-	__int16_t m128_i16[8];
-	__int32_t m128_i32[4];
-	__int64_t m128_i64[2];
-	__uint16_t m128_u16[8];
-	__uint32_t m128_u32[4];
-	__uint64_t m128_u64[2];
+	uint8_t m128_i8[16];
+	uint16_t m128_i16[8];
+	uint32_t m128_i32[4];
+	uint64_t m128_i64[2];
+	uint16_t m128_u16[8];
+	uint32_t m128_u32[4];
+	uint64_t m128_u64[2];
 	__m128 m128;
 	__m128i m128i;
 } UnionM128;

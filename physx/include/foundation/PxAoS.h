@@ -32,11 +32,11 @@
 #include "foundation/Px.h"
 
 #if PX_WINDOWS && !PX_NEON
-#include "windows/PxWindowsAoS.h"
-#elif(PX_UNIX_FAMILY || PX_SWITCH)
-#include "unix/PxUnixAoS.h"
+  #include "unix/PxUnixAoS.h"
+#elif (PX_UNIX_FAMILY || PX_SWITCH)
+  #include "unix/PxUnixAoS.h"
 #else
-#error "Platform not supported!"
+  #error "Platform not supported!"
 #endif
 
 #endif
