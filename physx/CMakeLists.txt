@@ -589,6 +589,12 @@ if (CMAKE_SYSTEM_NAME MATCHES Windows)
     message(WARNING "Compiling PhysX as a static library for Windows")
 endif ()
 
+if (CMAKE_SYSTEM_NAME MATCHES LINUX AND CMAKE_BUILD_TYPE MATCHES Debug)
+    set(PLATFORM_SPECIFIC_DEFINITIONS
+            NDEBUG
+    )
+endif ()
+
 if (CMAKE_BUILD_TYPE MATCHES Debug)
     target_compile_definitions(PhysX PRIVATE
             DISABLE_CUDA_PHYSX
