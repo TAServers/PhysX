@@ -572,6 +572,7 @@ set(PLATFORM_SPECIFIC_DEFINITIONS "")
 if (CMAKE_SYSTEM_NAME MATCHES Windows)
     set(PLATFORM_SPECIFIC_DEFINITIONS
             PX_SIMD_DISABLED
+            PX_DISABLE_RESTRICT
     )
 
     message(WARNING "Windows does not support PhysX SIMD acceleration")
