@@ -589,7 +589,7 @@ if (CMAKE_SYSTEM_NAME MATCHES Windows)
     message(WARNING "Compiling PhysX as a static library for Windows")
 endif ()
 
-if (CMAKE_SYSTEM_NAME MATCHES LINUX AND CMAKE_BUILD_TYPE MATCHES Debug)
+if (CMAKE_SYSTEM_NAME MATCHES Linux AND CMAKE_BUILD_TYPE MATCHES Debug)
     set(PLATFORM_SPECIFIC_DEFINITIONS
             NDEBUG
     )
