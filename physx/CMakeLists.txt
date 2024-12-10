@@ -579,12 +579,18 @@ if (CMAKE_SYSTEM_NAME MATCHES Windows)
             PX_PHYSX_STATIC_LIB
     )
 
+    if (CMAKE_BUILD_TYPE MATCHES Debug)
+        set(PLATFORM_SPECIFIC_DEFINITIONS
+                ${PLATFORM_SPECIFIC_DEFINITIONS}
+                _DEBUG
+        )
+    endif ()
+
     message(WARNING "Compiling PhysX as a static library for Windows")
 endif ()
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
     target_compile_definitions(PhysX PRIVATE
-            _DEBUG
             DISABLE_CUDA_PHYSX
             PX_PUBLIC_RELEASE=1
             PX_SUPPORT_OMNI_PVD=0
