@@ -56,7 +56,7 @@ physx::PxFPUGuard::PxFPUGuard()
 #if PX_LINUX
 	// need to explicitly disable exceptions because fesetenv does not modify
 	// the sse control word on 32bit linux (64bit is fine, but do it here just be sure)
-	fedisableexcept(FE_ALL_EXCEPT);
+	// fedisableexcept(FE_ALL_EXCEPT);
 #endif
 
 #endif
@@ -81,7 +81,7 @@ PX_FOUNDATION_API void physx::PxEnableFPExceptions()
 {
 #if PX_LINUX && !defined(__EMSCRIPTEN__)
 	feclearexcept(FE_ALL_EXCEPT);
-	feenableexcept(FE_INVALID | FE_DIVBYZERO | FE_OVERFLOW);
+	// feenableexcept(FE_INVALID | FE_DIVBYZERO | FE_OVERFLOW);
 #elif PX_OSX
 	// clear any pending exceptions
 	// (setting exception state flags cause exceptions on the first following fp operation)
@@ -97,7 +97,7 @@ PX_FOUNDATION_API void physx::PxEnableFPExceptions()
 PX_FOUNDATION_API void physx::PxDisableFPExceptions()
 {
 #if PX_LINUX && !defined(__EMSCRIPTEN__)
-	fedisableexcept(FE_ALL_EXCEPT);
+	// fedisableexcept(FE_ALL_EXCEPT);
 #elif PX_OSX
 	// clear any pending exceptions
 	// (setting exception state flags cause exceptions on the first following fp operation)
