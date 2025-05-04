@@ -58,7 +58,7 @@
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleChassisData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleChassisData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -136,7 +136,7 @@ template<> struct PxEnumTraits< const physx::PxEMPTY > { PxEnumTraits() : NameCo
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleEngineData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleEngineData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -238,7 +238,7 @@ template<> struct PxEnumTraits< physx::PxVehicleGearsData::Enum > { PxEnumTraits
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleGearsData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleGearsData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -295,7 +295,7 @@ template<> struct PxEnumTraits< physx::PxVehicleGearsData::Enum > { PxEnumTraits
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleAutoBoxData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleAutoBoxData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -375,7 +375,7 @@ template<> struct PxEnumTraits< physx::PxVehicleDifferential4WData::Enum > { PxE
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleDifferential4WData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleDifferential4WData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -429,7 +429,7 @@ template<> struct PxEnumTraits< physx::PxVehicleDifferential4WData::Enum > { PxE
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleDifferentialNWData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleDifferentialNWData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -486,7 +486,7 @@ template<> struct PxEnumTraits< physx::PxVehicleDifferential4WData::Enum > { PxE
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleAckermannGeometryData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleAckermannGeometryData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -550,7 +550,7 @@ template<> struct PxEnumTraits< physx::PxVehicleClutchAccuracyMode::Enum > { PxE
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleClutchData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleClutchData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -612,7 +612,7 @@ template<> struct PxEnumTraits< physx::PxVehicleClutchAccuracyMode::Enum > { PxE
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleTireLoadFilterData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleTireLoadFilterData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -694,7 +694,7 @@ template<> struct PxEnumTraits< physx::PxVehicleClutchAccuracyMode::Enum > { PxE
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleWheelData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleWheelData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -780,7 +780,7 @@ template<> struct PxEnumTraits< physx::PxVehicleClutchAccuracyMode::Enum > { PxE
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleSuspensionData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleSuspensionData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -844,7 +844,7 @@ template<> struct PxEnumTraits< physx::PxVehicleClutchAccuracyMode::Enum > { PxE
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleAntiRollBarData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleAntiRollBarData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -918,7 +918,7 @@ template<> struct PxEnumTraits< physx::PxVehicleClutchAccuracyMode::Enum > { PxE
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleTireData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleTireData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -977,7 +977,7 @@ template<> struct PxEnumTraits< physx::PxVehicleClutchAccuracyMode::Enum > { PxE
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleWheels4SimData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleWheels4SimData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1062,7 +1062,7 @@ template<> struct PxEnumTraits< physx::PxVehicleWheelsSimFlag::Enum > { PxEnumTr
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleWheelsSimData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleWheelsSimData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1131,7 +1131,7 @@ template<> struct PxEnumTraits< physx::PxVehicleWheelsSimFlag::Enum > { PxEnumTr
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleWheelsDynData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleWheelsDynData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1195,7 +1195,7 @@ template<> struct PxEnumTraits< physx::PxVehicleWheelsSimFlag::Enum > { PxEnumTr
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleWheels*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleWheels*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1296,7 +1296,7 @@ template<> struct PxEnumTraits< physx::PxVehicleWheelsSimFlag::Enum > { PxEnumTr
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleDriveDynData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleDriveDynData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1370,7 +1370,7 @@ template<> struct PxEnumTraits< physx::PxVehicleWheelsSimFlag::Enum > { PxEnumTr
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleDriveSimData*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleDriveSimData*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1424,7 +1424,7 @@ template<> struct PxEnumTraits< physx::PxVehicleWheelsSimFlag::Enum > { PxEnumTr
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleDriveSimData4W*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleDriveSimData4W*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1480,7 +1480,7 @@ template<> struct PxEnumTraits< physx::PxVehicleWheelsSimFlag::Enum > { PxEnumTr
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleDrive*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleDrive*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1536,7 +1536,7 @@ template<> struct PxEnumTraits< physx::PxVehicleWheelsSimFlag::Enum > { PxEnumTr
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleDrive4W*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleDrive4W*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1602,7 +1602,7 @@ template<> struct PxEnumTraits< physx::PxVehicleDriveTankControlModel::Enum > { 
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleDriveTank*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleDriveTank*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1656,7 +1656,7 @@ template<> struct PxEnumTraits< physx::PxVehicleDriveTankControlModel::Enum > { 
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleDriveSimDataNW*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleDriveSimDataNW*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1711,7 +1711,7 @@ template<> struct PxEnumTraits< physx::PxVehicleDriveTankControlModel::Enum > { 
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleDriveNW*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleDriveNW*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
@@ -1767,7 +1767,7 @@ template<> struct PxEnumTraits< physx::PxVehicleDriveTankControlModel::Enum > { 
 		template<typename TReturnType, typename TOperator>
 		TReturnType visitType( TOperator inOperator ) const
 		{
-			return inOperator( reinterpret_cast<PxVehicleNoDrive*>(NULL) );
+			return inOperator( reinterpret_cast<PxVehicleNoDrive*>(0) );
 		}
 		template<typename TOperator>
 		void visitBases( TOperator inOperator )
