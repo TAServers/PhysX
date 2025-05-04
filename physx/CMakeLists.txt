@@ -611,3 +611,7 @@ endif ()
 target_compile_options(PhysX PRIVATE
         -Wno-invalid-offsetof
 )
+
+install(TARGETS PhysX
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
