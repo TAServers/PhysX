@@ -577,6 +577,8 @@ if (CMAKE_SYSTEM_NAME MATCHES Windows)
     set(PLATFORM_SPECIFIC_DEFINITIONS
             PX_DISABLE_RESTRICT
             PX_PHYSX_STATIC_LIB
+            PX_SIMD_DISABLED
+            PX_FLOAT_POINT_PRECISE_MATH
     )
 
     message(WARNING "Compiling PhysX as a static library for Windows")
@@ -610,6 +612,11 @@ endif ()
 
 target_compile_options(PhysX PRIVATE
         -Wno-invalid-offsetof
+)
+
+# force libc++
+target_compile_options(PhysX PRIVATE
+        -stdlib=libc++
 )
 
 install(TARGETS PhysX

@@ -325,14 +325,7 @@ void PxThreadImpl::setName(const char* name)
 
 		// C++ Exceptions are disabled for this project, but SEH is not (and cannot be)
 		// http://stackoverflow.com/questions/943087/what-exactly-will-happen-if-i-disable-c-exceptions-in-a-project
-		__try
-		{
-			RaiseException(NS_MS_VC_EXCEPTION, 0, sizeof(info) / sizeof(ULONG_PTR), (ULONG_PTR*)&info);
-		}
-		__except (EXCEPTION_EXECUTE_HANDLER)
-		{
-			// this runs if not attached to a debugger (thus not really naming the thread)
-		}
+	    RaiseException(NS_MS_VC_EXCEPTION, 0, sizeof(info) / sizeof(ULONG_PTR), (ULONG_PTR*)&info);
 	}
 }
 
