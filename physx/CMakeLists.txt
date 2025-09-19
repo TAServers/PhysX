@@ -12,7 +12,6 @@ if (UNIX)
             source/foundation/unix/FdUnixThread.cpp
             source/foundation/unix/FdUnixTime.cpp
     )
-    set(BUILD_SHARED_LIBS ON)
 elseif (WIN32)
     set(PLATFORM_SPECIFIC_SOURCES
             source/foundation/windows/FdWindowsAtomic.cpp
@@ -31,7 +30,8 @@ elseif (WIN32)
             source/physxcooking/src/windows/WindowsCookingDelayLoadHook.cpp
     )
 
-    # Windows PhysX only supports a static library
+    message(WARNING "Compiling PhysX as a static library for Windows, regardless of build settings.")
+    message(WARNING "PhysX does not support dynamic linkage on windows (with our custom CMakeLists.txt at least).")
     set(BUILD_SHARED_LIBS OFF)
 endif ()
 
@@ -578,8 +578,6 @@ if (CMAKE_SYSTEM_NAME MATCHES Windows)
             PX_DISABLE_RESTRICT
             PX_PHYSX_STATIC_LIB
     )
-
-    message(WARNING "Compiling PhysX as a static library for Windows")
 endif ()
 
 if (CMAKE_SYSTEM_NAME MATCHES Linux AND CMAKE_BUILD_TYPE MATCHES Debug)
@@ -614,6 +612,23 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     )
 endif ()
 
-install(TARGETS PhysX
+file(GLOB_RECURSE PHYSX_PUBLIC_HEADERS CONFIGURE_DEPENDS "include/*.hpp" "include/*.h")
+target_sources(
+        PhysX
+        PUBLIC FILE_SET HEADERS BASE_DIRS "include" FILES ${PHYSX_PUBLIC_HEADERS}
+)
+
+install(
+        TARGETS PhysX
+        EXPORT PhysX
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        FILE_SET HEADERS
+)
+install(
+        EXPORT PhysX
+        DESTINATION share/physx
+        FILE PhysXConfig.cmake
+        NAMESPACE PhysX::
+)
