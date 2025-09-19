@@ -608,10 +608,12 @@ else ()
     )
 endif ()
 
-target_compile_options(PhysX PRIVATE
-        -Wno-invalid-offsetof
-)
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(PhysX PRIVATE
+            -Wno-invalid-offsetof
+    )
+endif ()
 
 install(TARGETS PhysX
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
