@@ -29,10 +29,9 @@
 #ifndef PX_AOS_H
 #define PX_AOS_H
 
-
-#if PX_WINDOWS && !PX_NEON
+#if PX_WINDOWS && !PX_NEON && !__clang__
 #include "windows/PxWindowsAoS.h"
-#elif(PX_UNIX_FAMILY || PX_SWITCH)
+#elif (PX_UNIX_FAMILY || PX_SWITCH) || __clang__
 #include "unix/PxUnixAoS.h"
 #else
 #error "Platform not supported!"
